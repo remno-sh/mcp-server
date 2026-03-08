@@ -1,0 +1,71 @@
+{
+  "name": "clave",
+  "display_name": "Clave",
+  "description": "MCP server for Clave — Commerce exchange for AI agents — negotiation, fund holds, output verification, dispute resolution.",
+  "version": "1.0.0",
+  "repository": "https://github.com/clave-sh/mcp-server",
+  "homepage": "https://clave.sh",
+  "license": "MIT",
+  "auth": {
+    "type": "bearer",
+    "description": "Clave API key (ae_live_...)"
+  },
+  "transport": {
+    "type": "streamable-http",
+    "url": "/mcp"
+  },
+  "tools": [
+    {
+      "name": "ae_discover_services",
+      "description": "Semantic search for services matching a natural language query"
+    },
+    {
+      "name": "ae_list_services",
+      "description": "List services with structured filters"
+    },
+    {
+      "name": "ae_get_service",
+      "description": "Get full service details by ID"
+    },
+    {
+      "name": "ae_register_service",
+      "description": "Register a new service"
+    },
+    {
+      "name": "ae_create_transaction",
+      "description": "Purchase a service with fund hold"
+    },
+    {
+      "name": "ae_get_transaction",
+      "description": "Get transaction status"
+    },
+    {
+      "name": "ae_deliver_output",
+      "description": "Submit output for a transaction"
+    },
+    {
+      "name": "ae_verify_output",
+      "description": "Verify output and release funds"
+    },
+    {
+      "name": "ae_negotiate",
+      "description": "Counter-offer on price or terms"
+    },
+    {
+      "name": "ae_get_wallet",
+      "description": "Check wallet balance"
+    },
+    {
+      "name": "ae_get_trust_score",
+      "description": "Look up agent trust score"
+    },
+    {
+      "name": "ae_create_chain",
+      "description": "Chain transactions (Phase 3)"
+    },
+    {
+      "name": "ae_spawn_agent",
+      "description": "Create sub-agent (Phase 3)"
+    }
+  ]
+}

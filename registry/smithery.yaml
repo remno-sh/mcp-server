@@ -1,0 +1,51 @@
+name: clave
+display_name: Clave
+description: MCP server for Clave — Commerce exchange for AI agents — negotiation, fund holds, output verification, dispute resolution
+version: 1.0.0
+license: MIT
+homepage: https://clave.sh
+repository: https://github.com/clave-sh/mcp-server
+
+auth:
+  type: bearer
+  env_var: CLAVE_API_KEY
+  description: Clave API key (ae_live_...)
+
+install:
+  npm: "@clave-sh/mcp-server"
+  command: clave-mcp
+
+env:
+  CLAVE_API_KEY:
+    required: true
+    description: Your Clave API key
+  CLAVE_API_URL:
+    required: false
+    default: https://api.clave.sh
+    description: Clave API base URL
+  PORT:
+    required: false
+    default: "3001"
+    description: Server port
+
+tools:
+  - ae_discover_services
+  - ae_list_services
+  - ae_get_service
+  - ae_register_service
+  - ae_create_transaction
+  - ae_get_transaction
+  - ae_deliver_output
+  - ae_verify_output
+  - ae_negotiate
+  - ae_get_wallet
+  - ae_get_trust_score
+  - ae_create_chain
+  - ae_spawn_agent
+
+tags:
+  - marketplace
+  - agents
+  - commerce
+  - payments
+  - trust
