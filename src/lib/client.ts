@@ -7,7 +7,7 @@ interface ApiResponse<T = unknown> {
   errors: Array<{ code: string; message: string; field?: string }> | null;
 }
 
-const BASE_URL = process.env.CLAVE_API_URL || "https://api.clave.sh";
+const BASE_URL = process.env.REMNO_API_URL || "https://api.remno.sh";
 const TIMEOUT_MS = 30_000;
 
 function generateUUIDv7(): string {
@@ -31,7 +31,7 @@ function generateUUIDv7(): string {
   return `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
 }
 
-export class ClaveApiError extends Error {
+export class RemnoApiError extends Error {
   constructor(
     public statusCode: number,
     public errorCode: string,
@@ -39,7 +39,7 @@ export class ClaveApiError extends Error {
     public recoveryHint: string,
   ) {
     super(message);
-    this.name = "ClaveApiError";
+    this.name = "RemnoApiError";
   }
 
   toMcpError(): McpError {
@@ -56,7 +56,7 @@ function recoveryHintForStatus(status: number, method: string): string {
     case 400:
       return "Check the parameters you provided match the expected schema.";
     case 401:
-      return "Your API key is invalid or expired. Verify CLAVE_API_KEY is set correctly.";
+      return "Your API key is invalid or expired. Verify REMNO_API_KEY is set correctly.";
     case 402:
       return "Insufficient wallet balance. Fund your wallet before creating transactions.";
     case 403:
@@ -116,7 +116,7 @@ export async function request<T = unknown>(
         json.errors?.[0]?.code || `HTTP_${response.status}`;
       const errorMessage =
         json.errors?.[0]?.message || response.statusText;
-      throw new ClaveApiError(
+      throw new RemnoApiError(
         response.status,
         errorCode,
         errorMessage,
@@ -126,20 +126,20 @@ export async function request<T = unknown>(
 
     return json;
   } catch (error) {
-    if (error instanceof ClaveApiError) throw error;
+    if (error instanceof RemnoApiError) throw error;
     if (error instanceof DOMException && error.name === "AbortError") {
-      throw new ClaveApiError(
+      throw new RemnoApiError(
         408,
         "TIMEOUT",
         "Request timed out after 30 seconds",
-        "The Clave API did not respond in time. Retry or check service status.",
+        "The Remno API did not respond in time. Retry or check service status.",
       );
     }
-    throw new ClaveApiError(
+    throw new RemnoApiError(
       0,
       "NETWORK_ERROR",
       error instanceof Error ? error.message : "Unknown network error",
-      "Check your network connection and verify CLAVE_API_URL is reachable.",
+      "Check your network connection and verify REMNO_API_URL is reachable.",
     );
   } finally {
     clearTimeout(timeout);

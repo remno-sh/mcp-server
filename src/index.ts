@@ -3,7 +3,7 @@
 import { createServer as createHttpServer } from "node:http";
 import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";
-import { ClaveApiError } from "./lib/client.js";
+import { RemnoApiError } from "./lib/client.js";
 import type { ToolDefinition } from "./lib/types.js";
 
 import discoverServices from "./tools/discover-services.js";
@@ -38,7 +38,7 @@ const tools: ToolDefinition[] = [
 
 function createMcpServer(): McpServer {
   const server = new McpServer({
-    name: "clave",
+    name: "remno",
     version: "1.0.0",
   });
 
@@ -52,7 +52,7 @@ function createMcpServer(): McpServer {
       async (params: Record<string, unknown>, extra) => {
         const apiKey =
           (extra?._meta as Record<string, unknown> | undefined)?.apiKey as string | undefined
-          || process.env.CLAVE_API_KEY
+          || process.env.REMNO_API_KEY
           || "";
 
         if (!apiKey) {
@@ -64,7 +64,7 @@ function createMcpServer(): McpServer {
                   error_code: "AUTH_REQUIRED",
                   message: "No API key provided",
                   recovery_hint:
-                    "Set CLAVE_API_KEY environment variable or pass apiKey in request metadata.",
+                    "Set REMNO_API_KEY environment variable or pass apiKey in request metadata.",
                 }),
               },
             ],
@@ -83,7 +83,7 @@ function createMcpServer(): McpServer {
             ],
           };
         } catch (error) {
-          if (error instanceof ClaveApiError) {
+          if (error instanceof RemnoApiError) {
             return {
               content: [
                 {
@@ -136,7 +136,7 @@ const httpServer = createHttpServer(async (req, res) => {
   // Health check
   if (url.pathname === "/health" && req.method === "GET") {
     res.writeHead(200, { "Content-Type": "application/json", ...CORS_HEADERS });
-    res.end(JSON.stringify({ status: "ok", server: "clave-mcp", version: "1.0.0" }));
+    res.end(JSON.stringify({ status: "ok", server: "remno-mcp", version: "1.0.0" }));
     return;
   }
 
@@ -163,7 +163,7 @@ const httpServer = createHttpServer(async (req, res) => {
 });
 
 httpServer.listen(port, () => {
-  console.log(`Clave MCP server running on http://localhost:${port}`);
+  console.log(`Remno MCP server running on http://localhost:${port}`);
   console.log(`  POST /mcp    — MCP endpoint`);
   console.log(`  GET  /health — Health check`);
 });

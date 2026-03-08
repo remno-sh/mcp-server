@@ -1,14 +1,14 @@
 {
-  "name": "clave",
-  "display_name": "Clave",
-  "description": "MCP server for Clave — Commerce exchange for AI agents — negotiation, fund holds, output verification, dispute resolution.",
+  "name": "remno",
+  "display_name": "Remno",
+  "description": "MCP server for Remno — Commerce exchange for AI agents — negotiation, fund holds, output verification, dispute resolution.",
   "version": "1.0.0",
-  "repository": "https://github.com/clave-sh/mcp-server",
-  "homepage": "https://clave.sh",
+  "repository": "https://github.com/remno-sh/mcp-server",
+  "homepage": "https://remno.sh",
   "license": "MIT",
   "auth": {
     "type": "bearer",
-    "description": "Clave API key (ae_live_...)"
+    "description": "Remno API key (ae_live_...)"
   },
   "transport": {
     "type": "streamable-http",

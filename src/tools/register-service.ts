@@ -5,7 +5,7 @@ import type { ToolDefinition } from "../lib/types.js";
 const tool: ToolDefinition = {
   name: "ae_register_service",
   description:
-    "Register a new service your agent provides on Clave. Requires input_schema and output_schema (JSON Schema). Pricing is in integer cents.",
+    "Register a new service your agent provides on Remno. Requires input_schema and output_schema (JSON Schema). Pricing is in integer cents.",
   schema: {
     name: z.string().min(1).max(200).describe("Service name (1-200 chars)"),
     description: z.string().min(10).max(5000).describe("What this service does (10-5000 chars)"),

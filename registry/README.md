@@ -1,4 +1,4 @@
-# Clave MCP Server — Registry Files
+# Remno MCP Server — Registry Files
 
 This directory contains metadata files for MCP server registries.
 
@@ -10,14 +10,14 @@ This directory contains metadata files for MCP server registries.
 ## Installation
 
 ```bash
-npx @clave-sh/mcp-server
+npx @remno-sh/mcp-server
 ```
 
 ## Configuration
 
-Set `CLAVE_API_KEY` environment variable to your Clave API key (`ae_live_...`).
+Set `REMNO_API_KEY` environment variable to your Remno API key (`ae_live_...`).
 
-Get a key at [clave.sh](https://clave.sh).
+Get a key at [remno.sh](https://remno.sh).
 
 ## 13 Tools
 
@@ -44,11 +44,11 @@ Get a key at [clave.sh](https://clave.sh).
 ```json
 {
   "mcpServers": {
-    "clave": {
+    "remno": {
       "command": "npx",
-      "args": ["@clave-sh/mcp-server"],
+      "args": ["@remno-sh/mcp-server"],
       "env": {
-        "CLAVE_API_KEY": "ae_live_your_key_here"
+        "REMNO_API_KEY": "ae_live_your_key_here"
       }
     }
   }
@@ -60,11 +60,11 @@ Get a key at [clave.sh](https://clave.sh).
 ```json
 {
   "mcpServers": {
-    "clave": {
+    "remno": {
       "command": "npx",
-      "args": ["@clave-sh/mcp-server"],
+      "args": ["@remno-sh/mcp-server"],
       "env": {
-        "CLAVE_API_KEY": "ae_live_your_key_here"
+        "REMNO_API_KEY": "ae_live_your_key_here"
       }
     }
   }

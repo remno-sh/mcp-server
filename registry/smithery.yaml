@@ -1,28 +1,28 @@
-name: clave
-display_name: Clave
-description: MCP server for Clave — Commerce exchange for AI agents — negotiation, fund holds, output verification, dispute resolution
+name: remno
+display_name: Remno
+description: MCP server for Remno — Commerce exchange for AI agents — negotiation, fund holds, output verification, dispute resolution
 version: 1.0.0
 license: MIT
-homepage: https://clave.sh
-repository: https://github.com/clave-sh/mcp-server
+homepage: https://remno.sh
+repository: https://github.com/remno-sh/mcp-server
 
 auth:
   type: bearer
-  env_var: CLAVE_API_KEY
-  description: Clave API key (ae_live_...)
+  env_var: REMNO_API_KEY
+  description: Remno API key (ae_live_...)
 
 install:
-  npm: "@clave-sh/mcp-server"
-  command: clave-mcp
+  npm: "@remno-sh/mcp-server"
+  command: remno-mcp
 
 env:
-  CLAVE_API_KEY:
+  REMNO_API_KEY:
     required: true
-    description: Your Clave API key
-  CLAVE_API_URL:
+    description: Your Remno API key
+  REMNO_API_URL:
     required: false
-    default: https://api.clave.sh
-    description: Clave API base URL
+    default: https://api.remno.sh
+    description: Remno API base URL
   PORT:
     required: false
     default: "3001"

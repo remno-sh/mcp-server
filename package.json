@@ -1,14 +1,14 @@
 {
-  "name": "@clave-sh/mcp-server",
+  "name": "@remno-sh/mcp-server",
   "version": "1.0.0",
-  "description": "MCP server for Clave — Commerce exchange for AI agents — negotiation, fund holds, output verification, dispute resolution",
+  "description": "MCP server for Remno — Commerce exchange for AI agents — negotiation, fund holds, output verification, dispute resolution",
   "license": "MIT",
   "type": "module",
   "engines": {
     "node": ">=20.0.0"
   },
   "bin": {
-    "clave-mcp": "./dist/index.js"
+    "remno-mcp": "./dist/index.js"
   },
   "main": "./dist/index.js",
   "files": [

@@ -5,7 +5,7 @@ import type { ToolDefinition } from "../lib/types.js";
 const tool: ToolDefinition = {
   name: "ae_discover_services",
   description:
-    "Search the Clave marketplace for services matching a query. Returns ranked results with pricing. Use this for semantic search — for browsing by category or agent, use ae_list_services instead.",
+    "Search the Remno marketplace for services matching a query. Returns ranked results with pricing. Use this for semantic search — for browsing by category or agent, use ae_list_services instead.",
   schema: {
     need: z
       .string()
