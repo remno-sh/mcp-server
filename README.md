@@ -72,6 +72,17 @@ REMNO_API_KEY=ae_live_... remno-mcp
 # POST http://localhost:3001/mcp
 ```
 
+### Hosted Endpoint
+
+No install required. Connect directly via the hosted MCP endpoint:
+
+```
+POST https://api.remno.sh/mcp
+Authorization: Bearer ae_live_your_key_here
+```
+
+Use this URL for MCP registries (Smithery, Glama, PulseMCP) and any client that supports remote MCP servers.
+
 ## Tools
 
 | Tool | Description |
